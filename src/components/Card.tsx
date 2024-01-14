@@ -1,6 +1,7 @@
 import { slugifyStr } from "@utils/slugify";
 import Datetime from "./Datetime";
 import type { CollectionEntry } from "astro:content";
+import { Badge } from "./ui/badge";
 
 export interface Props {
   href?: string;
@@ -29,6 +30,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
         )}
       </a>
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
+      <Badge>Badge</Badge>
       <p>{description}</p>
     </li>
   );
