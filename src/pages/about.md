@@ -10,8 +10,6 @@ title: "关于我"
 平时也看看书，打打游戏，不过都是 PS / Switch 的单机游戏为主。
 偶尔也会出去走走，喜欢漫无目的乱逛，随遇而安，可能就是现在大家所称为的 citywalk。
 
-todo: change picture！
-
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
