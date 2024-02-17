@@ -5,7 +5,7 @@ featured: false
 draft: false
 tags:
   - Android
-description: 本文主要是对Android开发者网站API Guide中“Media Apps”章节内容的翻译以及部分个人的理解。
+description: 对Android开发者网站 API Guide 中“Media Apps”章节内容的翻译以及部分个人的理解。
 ---
 
 在Android系统中构建一个具有多媒体功能的App，如果是使用系统的Media Player，那么就需要了解Android系统对Media的处理流程，会有很多的细节需要开发者关注，比如播放器的各种状态，物理按键的响应等。本文主要是对Android开发者网站API Guide中“Media Apps”章节内容的翻译以及部分个人的理解。

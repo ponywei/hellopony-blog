@@ -5,10 +5,10 @@ featured: false
 draft: false
 tags:
   - Android
-description: 在Android项目开发中，WebView的使用都是必不可少的。在一个基本功能完备的项目中，都会把WebView提取成一个公用的Activity组件，在需要跳转到H5页面的地方启动这个activity并传入相关参数即可。这样的简便快捷的使用，却容易造成开发者对WebView相关知识的疏忽。遂成此文，整理一二。
+description: 在 Android项 目开发中，WebView 的使用都是必不可少的。在一个基本功能完备的项目中，都会把 WebView 提取成一个公用的 Activity 组件，在需要跳转到 H5 页面的地方启动这个 Activity 并传入相关参数即可。这样的简便快捷的使用，却容易造成开发者对 WebView 相关知识的疏忽。遂成此文，整理一二。
 ---
 
-在Android项目开发中，WebView的使用都是必不可少的。在一个基本功能完备的项目中，都会把WebView提取成一个公用的Activity组件，在需要跳转到H5页面的地方启动这个activity并传入相关参数即可。这样的简便快捷的使用，却容易造成开发者对WebView相关知识的疏忽。遂成此文，整理一二。
+在 Android项 目开发中，WebView 的使用都是必不可少的。在一个基本功能完备的项目中，都会把 WebView 提取成一个公用的 Activity 组件，在需要跳转到 H5 页面的地方启动这个 Activity 并传入相关参数即可。这样的简便快捷的使用，却容易造成开发者对 WebView 相关知识的疏忽。遂成此文，整理一二。
 
 <!-- more -->
 

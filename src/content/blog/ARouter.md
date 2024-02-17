@@ -5,7 +5,7 @@ featured: false
 draft: false
 tags:
   - Android
-description: ARouter是阿里巴巴开源的一个Android平台上的路由组件，为模块化之后的工程提供跨模块通信功能。在引入项目中使用的同时，也阅读了其源码进行了解和学习。
+description: ARouter 是阿里巴巴开源的一个 Android 平台上的路由组件，为模块化之后的工程提供跨模块通信功能。在引入项目中使用的同时，也阅读了其源码进行了解和学习。
 ---
 
 ARouter是阿里巴巴开源的一个Android平台上的路由组件，为模块化之后的工程提供跨模块通信功能。在引入项目中使用的同时，也阅读了其源码进行了解和学习。

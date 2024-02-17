@@ -5,7 +5,7 @@ featured: false
 draft: false
 tags:
   - Android
-description: SpannableString.setSpan 非常规探索
+description: SpannableString或SpannableStringBuilder可以通过SetSpan()方法对一个字符串对象的不同部分设置不同的样式信息，这个想必是人人皆知的。但看似简单的用法，其实里面也有一些小小的算不上坑的坑。
 ---
 
 SpannableString或SpannableStringBuilder可以通过SetSpan()方法对一个字符串对象的不同部分设置不同的样式信息，这个想必是人人皆知的。但看似简单的用法，其实里面也有一些小小的算不上坑的坑。

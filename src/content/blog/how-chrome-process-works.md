@@ -6,7 +6,7 @@ draft: false
 tags:
   - 前端
   - Chrome
-description: Chrome打开一个页面需要启动多少进程？
+description: Chrome 打开一个页面需要启动多少进程？
 ---
 
 在开始之前，我们一起看下，Chrome打开一个页面需要启动多少进程？你可以点击Chrome浏览器右上角的“选项”菜单，选择“更多工具”子菜单，点击“任务管理器”，这将打开Chrome的任务管理器的窗口，如下图
