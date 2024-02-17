@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-01-11T17:10:00Z
-title: Chrome架构：仅仅打开了1个页面，为什么有4个进程
+title: 「转」Chrome架构：仅仅打开了1个页面，为什么有4个进程
 featured: true
 draft: false
 tags:
