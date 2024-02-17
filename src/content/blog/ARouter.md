@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2018-03-27
-title: ARouter的使用及基本原理
+title: ARouter 的使用及基本原理
 featured: false
 draft: false
 tags:

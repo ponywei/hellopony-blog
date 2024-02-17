@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2018-03-27
-title: 如何构建一个Media App
+title: 如何构建一个 Media App
 featured: false
 draft: false
 tags:

@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2016-04-01
-title: Android Debug Bridge(adb) 以及 WIFI调试
+title: Android Debug Bridge(adb) 以及 WIFI 调试
 featured: false
 draft: false
 tags:
