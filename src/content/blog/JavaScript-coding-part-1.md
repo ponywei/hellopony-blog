@@ -12,6 +12,8 @@ description: 本篇编码实现包含深拷贝、防抖和节流、Promise.all &
 
 coding 在当下前端面试中属于是必考项目。最近在学习前端知识，准备面试，在各个渠道遇到了一些有代表的 code 题目，整理记录如下。本篇包含深拷贝、防抖和节流、Promise.all & race 以及函数的 apply/call/bind。
 
+## Table of contents
+
 ## 1. 浅拷贝与深拷贝
 
 浅拷贝一般不会直接考，为了防止失忆，这里还是要搂一眼
@@ -194,7 +196,7 @@ throttleBtn.addEventListener("click", () => {
 
 补充：`func.apply(this, args)` 中的 `this` 将指向调用防抖或节流函数时的上下文，而 `args` 将是调用防抖或节流函数时传递的参数。这样可以确保在执行目标函数时，保持原有的上下文和参数。
 
-##4. 实现 apply/call/bind
+## 4. 实现 apply/call/bind
 
 JavaScript 中的 `apply`、`call` 和 `bind` 是用于改变函数执行上下文（`this` 指向）的方法。
 
