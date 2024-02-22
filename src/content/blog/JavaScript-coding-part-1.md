@@ -1,6 +1,6 @@
 ---
 pubDatetime: 2024-02-21T12:26:18.269Z
-title: JavaScript 编码题 p1
+title: JavaScript 编码题 part1
 featured: true
 draft: false
 tags:
