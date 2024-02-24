@@ -5,8 +5,9 @@ featured: true
 draft: false
 tags:
   - 前端
-  - 编码题
   - JavaScript
+  - 编码题
+  - 面试
 description: 本篇编码实现包含深拷贝、防抖和节流、Promise.all & race 以及函数的 apply/call/bind。
 ---
 

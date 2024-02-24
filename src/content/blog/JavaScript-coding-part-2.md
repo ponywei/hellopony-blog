@@ -5,8 +5,9 @@ featured: true
 draft: false
 tags:
   - 前端
-  - 编码题
   - JavaScript
+  - 编码题
+  - 面试
 description: 本篇编码实现包含 Array.flatten、函数柯里化、new 关键字、instanceOf 关键字，以及实现 LRU Cache。
 ---
 
