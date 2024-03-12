@@ -51,7 +51,7 @@ new Foo().getName(); // 3
 
 ## First of all，为什么会有这套原型系统？
 
-这里我们不深入探究 JavaScript 的发展历史，已经关于他是否真正的面向对象，这里感兴趣可以去参考 winter 在《重学前端》中关于这块的章节。简而言之，早期的 JavaScript 并没有 class 关键词，来像 Java 一样直观的定义类，extends 关键字来表示类的继承关系（ES6 已加入），原型系统的设计得以让 JavaScript 也可以实现基于类的面向对象效果。
+这里我们不深入探究 JavaScript 的发展历史，以及关于他是否真正的面向对象，这里感兴趣可以去参考 winter 在《重学前端》中关于这块的章节。简而言之，早期的 JavaScript 并没有 class 关键词，来像 Java 一样直观的定义类，extends 关键字来表示类的继承关系（ES6 已加入），原型系统的设计得以让 JavaScript 也可以实现基于类的面向对象效果。
 也就是说，现在我们可以通过两种方式来实现类，一是 class 方式实现，这个是 Java 开发者都很熟悉的了：
 
 ```javascript
@@ -113,7 +113,7 @@ Range.getDesc("r"); // Range r
 理解原型，离不开类和对象的概念。
 对象的创建过程，如果理解为“比猫画虎”，那虎就是猫的原型。对照到语言中，可以概括为：如果我创建了一个实例 r，那 r 的原型就是 Range.prototype。原型本身也是对象。我们如果验证这一点？
 ![prototype-chain](@assets/images/javascript-prototype/getPrototypeOf.png)
-在代码块 Code-3 的基础上，我们 Object.getPrototypeOf 查 r 的原型，会发现有我们定义的 toString，还有一个默认的 constructor 属性，而这个属性正式指向 Range 构造函数本身。在浏览器环境下默认为对象提供了 `**__proto__**`\*\* \*\*来取得对象的原型，不过这个并不在 ECMAScript 规范中。
+在代码块 Code-3 的基础上，我们 Object.getPrototypeOf 查 r 的原型，会发现有我们定义的 toString，还有一个默认的 constructor 属性，而这个属性正式指向 Range 构造函数本身。在浏览器环境下默认为对象提供了 `__proto__`来取得对象的原型，不过这个并不在 ECMAScript 规范中。
 原型 prototype 和 构造函数 constructor 就这样形成了互相指认。
 
 ### new 关键字
@@ -171,7 +171,7 @@ function myCreate(proto) {
 - Object.prototype 是原型链的最顶端，他的原型是 null
 
 这样就构成了一条原型链：
-`r2.__proto__ -> r.__proto__ -> Range.prototype.__proto__ -> Object.prototype.proto** **-> null`
+`r2.__proto__ -> r.__proto__ -> Range.prototype.__proto__ -> Object.prototype.__proto__ -> null`
 根据原型系统的规则，属性的查找会顺着这条原型链一直向上，直至 null。
 
 所以，Code-3 Lin3-17，当我们在调用 `r.toString()`的时候，会发现 r 对象本身并没有这个方法，那么根据原型链规则，会向原型链的上一级去查找，也就是前面示例提到的 Range.prototype，在这里找到了 toString 方法，执行该方法。如果这里没有自己定义 toString，那么会追踪到 Object.prototype.toString ，那里有一个默认的方法实现。
@@ -186,7 +186,7 @@ function Foo() {
     // 注意：这里 getName 会挂载到全局上下文
     console.log(1);
   };
-  console.log(this); // 在浏览器环境下，this 就是 window 对象
+  console.log(this); // 这里 this 取决于函数的调用
   return this;
 }
 
@@ -195,33 +195,34 @@ Foo.getName = function () {
   console.log(2);
 };
 
+// 为 Foo 新增一个原型方法
 Foo.prototype.getName = function () {
-  // 为 Foo 新增一个原型方法
   console.log(3);
 };
 
+// var 声明的变量，会被提升到作用域最顶部，这是作用域是全局，
+// 相当于 var getName = undefined ... getName = xxxx，赋值的函数表达式，不具名函数，执行时机不变
 var getName = function () {
-  // var 声明的全局变量，作用域会被提升到最顶部
   console.log(4);
 };
 
+// 函数声明，会被提升到作用域最顶部，这样可以实现在函数声明之前调用函数
+// 这里具名函数声明提升到顶部之后，会被上面的 getName = function xxx 覆盖掉，永远不可访问
 function getName() {
-  // 基于 17 行，这里永远不会被执行
   console.log(5);
 }
 
 Foo.getName(); // 2，直接调用静态方法
 getName(); // 4 ，等同于 this.getName()，调全局方法
-Foo().getName(); // 1，先按普通函数执行了 Foo()，此时 全局挂载了一个新的 getName，返回的 this 也是全局上下文
+Foo().getName(); // 1，先按普通函数执行了 Foo()，给全局挂载了一个新的 getName，返回的 this 也是全局上下文
 getName(); // 1，上一步修改了全局上下文的 getName
-new Foo().getName(); // 3，这里有 new 关键字，按构造函数调用了 Foo() 会新建一个对
-// 再在该对象的属性中查找 getName，如果没有就往其原型上找，此时找到 3
+new Foo().getName(); // 3，这里有 new 关键字，按构造函数调用了 Foo() 会创建一个新对象，此时内部 this 指向的就是这个新对象，然后在该对象的属性中查找 getName，如果没有就往其原型上找，此时找到 3
 ```
 
 ## 扩展：继承的实现
 
 从上一节的内容，Object.create 其实就是一个简单版本的继承：创建了一个匿名类的实例，该实例继承自入参对象的原型。如果我们想要实现一个具体的类的继承呢？
-如果使用 ES6 的新语法，那直接使用 extends 关键字就可以，可 Java 是一样的。
+如果使用 ES6 的新语法，那直接使用 extends 关键字就可以，和 Java 是一样的。
 
 ```javascript
 class Range {
