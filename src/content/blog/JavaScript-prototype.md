@@ -281,4 +281,5 @@ LengthRange.prototype.constructor = LengthRange;
 
 3. 到这里就基本完成了继承。但是因为我们整个重新赋值了子类的原型 LengthRange.prototype，带来两个问题：
    1. constructor 默认是在原型上的构造函数引用，重新赋值 prototype 之后会丢失，所以就有了第三步的修复构造函数指向；
-   - 对子类的定义原型方法如 LengthRange.prototype.xxxx 一定要写在继承代码之后，否则就会丢失；
+   2. 对子类的定义原型方法如 LengthRange.prototype.xxxx 一定要写在继承代码之后，否则就会丢失；
+4. 补充内容：通过以上步骤，我们实现了寄生组合式的继承，达到了子类继承父类的效果，完成了原型链的建立。但是不难发现，我们没处理静态方法。也就是说如果我们通过 LengthRange 是无法获取到 Range.xxx 静态方法的。因为静态方法本身与对象实例无关，也就意味着在静态方法内无法取得当前实例的 this，所以我们一般不需要去继承，除非你的业务场景有这种特殊的需要。如果想要实现静态方法的继承，需要加上一句：`Object.setPrototypeOf(LengthRange, Range);`。这里可能会有点迷惑，构造函数本身也是有原型的，默认情况加`Object.getPrototypeOf(LengthRange)` 就是 Function，我们手动 set 之后就把他的原型改变成了 Range 函数，而 Range 的静态方法就是绑定在构造函数本身，所以这样就可以通过 LengthRange.xxx 调用静态方法了。这里理解时一定要和 `LengthRange.prototype` 原型对象区分开。
